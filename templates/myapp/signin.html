@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for message in messages %}
+    <div class="alert alert-{{messages.tags}} alert-dismissable fade show" role="alert">
+        <strong>Message:</strong>{{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    <h1>SignIn</h1>
+    <form action="/signin" method="post">
+        {% csrf_token %}
+        <label for="username">UserName</label>
+        <input type="text" name="username" id="username" placeholder="enter name"><br>
+        <label for="fname">Password</label>
+        <input type="password" name="pass1" id="pass1" placeholder="enter password"><br>
+        <button type="submit">signin</button>
+    </form>
+</body>
+</html>
